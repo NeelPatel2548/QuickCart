@@ -2,6 +2,16 @@
 session_start();
 require_once 'config.php';
 
+// Handle remove action
+if (isset($_GET['action']) && $_GET['action'] === 'remove' && isset($_GET['id'])) {
+    $remove_id = (int)$_GET['id'];
+    if (isset($_SESSION['cart'][$remove_id])) {
+        unset($_SESSION['cart'][$remove_id]);
+    }
+    header("Location: cart.php");
+    exit();
+}
+
 header('Content-Type: application/json');
 
 // Support both POST (new UI) and GET (legacy/fallback)

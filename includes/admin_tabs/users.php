@@ -1,5 +1,7 @@
 <?php
-$users = $pdo->query("SELECT u.*, (SELECT COUNT(*) FROM orders WHERE user_id = u.id) as order_count FROM users ORDER BY u.id ASC")->fetchAll();
+$stmt = $pdo->prepare("SELECT u.*, (SELECT COUNT(*) FROM orders WHERE user_id = u.id) as order_count FROM users u ORDER BY u.id ASC");
+$stmt->execute();
+$users = $stmt->fetchAll();
 ?>
 <div class="page-header" style="display:flex;justify-content:space-between;align-items:center">
     <div><h1>Customers</h1><p><?= count($users) ?> registered users.</p></div>
