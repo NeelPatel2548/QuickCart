@@ -20,6 +20,7 @@ if (isset($_SESSION['cart'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/responsive-additions.css?v=<?= time(); ?>">
 </head>
 <body>
 
